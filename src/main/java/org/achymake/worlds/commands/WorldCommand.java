@@ -116,8 +116,9 @@ public class WorldCommand implements CommandExecutor, TabCompleter {
                     } else {
                         getMessage().send(player, worldName + "&6 is about to be created");
                         var info = getWorlds().create(worldName, environment);
-                        getMessage().send(player, info.getName() + "&6 environment:&f " + info.getEnvironment().name());
-                        getMessage().send(player, info.getName() + "&6: seed:&f " + info.getSeed());
+                        getMessage().send(player, info.getName() + "&6 has been created with the following:");
+                        getMessage().send(player, "&6environment:&f " + info.getEnvironment().name());
+                        getMessage().send(player, "&6seed:&f " + info.getSeed());
                     }
                     return true;
                 }
@@ -134,8 +135,9 @@ public class WorldCommand implements CommandExecutor, TabCompleter {
                         } else {
                             getMessage().send(player, worldName + "&6 is about to be added");
                             var info = getWorlds().create(worldName, environment);
-                            getMessage().send(player, info.getName() + "&6 environment:&f " + info.getEnvironment().name());
-                            getMessage().send(player, info.getName() + "&6: seed:&f " + info.getSeed());
+                            getMessage().send(player, info.getName() + "&6 has been created with the following:");
+                            getMessage().send(player, "&6environment:&f " + info.getEnvironment().name());
+                            getMessage().send(player, "&6seed:&f " + info.getSeed());
                         }
                     } else {
                         getMessage().send(player, worldName + "&c does not exist");
@@ -165,8 +167,9 @@ public class WorldCommand implements CommandExecutor, TabCompleter {
                         } else {
                             getMessage().send(player, worldName + "&6 is about to be created");
                             var info = getWorlds().createRandom(worldName, environment);
-                            getMessage().send(player, info.getName() + "&6 environment:&f " + info.getEnvironment().name());
-                            getMessage().send(player, info.getName() + "&6: seed:&f " + info.getSeed());
+                            getMessage().send(player, info.getName() + "&6 has been created with the following:");
+                            getMessage().send(player, "&6environment:&f " + info.getEnvironment().name());
+                            getMessage().send(player, "&6seed:&f " + info.getSeed());
                         }
                     } else {
                         var seed = Long.parseLong(args[3]);
@@ -175,8 +178,9 @@ public class WorldCommand implements CommandExecutor, TabCompleter {
                         } else {
                             getMessage().send(player, worldName + "&6 is about to be created");
                             var info = getWorlds().create(worldName, environment, seed);
-                            getMessage().send(player, info.getName() + "&6 environment:&f " + info.getEnvironment().name());
-                            getMessage().send(player, info.getName() + "&6: seed:&f " + info.getSeed());
+                            getMessage().send(player, info.getName() + "&6 has been created with the following:");
+                            getMessage().send(player, "&6environment:&f " + info.getEnvironment().name());
+                            getMessage().send(player, "&6seed:&f " + info.getSeed());
                         }
                     }
                     return true;

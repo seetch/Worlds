@@ -1,0 +1,12 @@
+name: world
+display-name: world
+environment: NORMAL
+seed: seed
+portals:
+  enable: false
+  NETHER: world
+  END: world_the_end
+settings:
+  pvp: true
+  disable-block-break: false
+  disable-entity-damage-by-entity: false

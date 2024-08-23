@@ -1,0 +1,9 @@
+name: world
+display-name: world
+environment: NORMAL
+seed: seed
+pvp: true
+portals:
+  enable: false
+  NETHER: world
+  END: world_the_end

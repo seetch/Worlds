@@ -1,1 +1,5 @@
-
+messages:
+  pvp-denied: "&cHey!&7 Sorry but PVP is disabled"
+  block-break-denied: "&cHey!&7 Sorry but block break is disabled"
+  block-place-denied: "&cHey!&7 Sorry but block place is disabled"
+  interact-denied: "&cHey!&7 Sorry but interact is disabled"

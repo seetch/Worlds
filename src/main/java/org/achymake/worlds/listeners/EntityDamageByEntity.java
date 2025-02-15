@@ -37,7 +37,7 @@ public class EntityDamageByEntity implements Listener {
                     if (entity instanceof Player target) {
                         if (player == target) return;
                         if (getDatabase().isPVP(target.getWorld())) return;
-                        getMessage().send(player, "&cHey!&7 Sorry but PVP is disabled");
+                        getMessage().send(player, getWorlds().getConfig().getString("messages.pvp-denied"));
                         event.setCancelled(true);
                     }
                 }
@@ -46,7 +46,7 @@ public class EntityDamageByEntity implements Listener {
                 if (entity instanceof Player target) {
                     if (player == target) return;
                     if (getDatabase().isPVP(target.getWorld())) return;
-                    getMessage().send(player, "&cHey!&7 Sorry but PVP is disabled");
+                    getMessage().send(player, getWorlds().getConfig().getString("messages.pvp-denied"));
                     event.setCancelled(true);
                 }
             }
@@ -55,7 +55,7 @@ public class EntityDamageByEntity implements Listener {
                     if (entity instanceof Player target) {
                         if (player == target) return;
                         if (getDatabase().isPVP(target.getWorld())) return;
-                        getMessage().send(player, "&cHey!&7 Sorry but PVP is disabled");
+                        getMessage().send(player, getWorlds().getConfig().getString("messages.pvp-denied"));
                         event.setCancelled(true);
                     }
                 }
@@ -65,7 +65,7 @@ public class EntityDamageByEntity implements Listener {
                     if (entity instanceof Player target) {
                         if (player == target) return;
                         if (getDatabase().isPVP(target.getWorld())) return;
-                        getMessage().send(player, "&cHey!&7 Sorry but PVP is disabled");
+                        getMessage().send(player, getWorlds().getConfig().getString("messages.pvp-denied"));
                         event.setCancelled(true);
                     }
                 }
@@ -75,7 +75,7 @@ public class EntityDamageByEntity implements Listener {
                     if (entity instanceof Player target) {
                         if (player == target) return;
                         if (getDatabase().isPVP(target.getWorld())) return;
-                        getMessage().send(player, "&cHey!&7 Sorry but PVP is disabled");
+                        getMessage().send(player, getWorlds().getConfig().getString("messages.pvp-denied"));
                         event.setCancelled(true);
                     }
                 }
@@ -85,7 +85,7 @@ public class EntityDamageByEntity implements Listener {
                     if (entity instanceof Player target) {
                         if (player == target) return;
                         if (getDatabase().isPVP(target.getWorld())) return;
-                        getMessage().send(player, "&cHey!&7 Sorry but PVP is disabled");
+                        getMessage().send(player, getWorlds().getConfig().getString("messages.pvp-denied"));
                         event.setCancelled(true);
                     }
                 }
@@ -95,7 +95,7 @@ public class EntityDamageByEntity implements Listener {
                     if (entity instanceof Player target) {
                         if (player == target) return;
                         if (getDatabase().isPVP(target.getWorld())) return;
-                        getMessage().send(player, "&cHey!&7 Sorry but PVP is disabled");
+                        getMessage().send(player, getWorlds().getConfig().getString("messages.pvp-denied"));
                         event.setCancelled(true);
                     }
                 }

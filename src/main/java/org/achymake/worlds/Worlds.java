@@ -47,7 +47,10 @@ public final class Worlds extends JavaPlugin {
     }
 
     private void events() {
+        new BlockBreak();
+        new BlockPlace();
         new EntityDamageByEntity();
+        new PlayerInteract();
         new PlayerPortal();
         new ServerLoad();
         new WorldLoad();

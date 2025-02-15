@@ -81,10 +81,10 @@ public class Database {
         config.set("display-name", world.getName());
         config.set("environment", world.getEnvironment().toString());
         config.set("seed", world.getSeed());
-        config.set("pvp", true);
         config.set("portals.enable", false);
         config.set("portals.NETHER_PORTAL", "world");
         config.set("portals.END_PORTAL", "world_the_end");
+        config.set("settings.pvp", true);
         try {
             config.save(file);
         } catch (IOException e) {
@@ -93,7 +93,19 @@ public class Database {
     }
 
     public boolean isPVP(World world) {
-        return getConfig(world).getBoolean("pvp");
+        return getConfig(world).getBoolean("settings.pvp");
+    }
+
+    public boolean isBlockBreakEnabled(World world) {
+        return getConfig(world).getBoolean("settings.disable-block-break");
+    }
+
+    public boolean isBlockPlaceEnabled(World world) {
+        return getConfig(world).getBoolean("settings.disable-block-place");
+    }
+
+    public boolean isInteractEnabled(World world) {
+        return getConfig(world).getBoolean("settings.disable-interact");
     }
 
     public String getDisplayName(World world) {

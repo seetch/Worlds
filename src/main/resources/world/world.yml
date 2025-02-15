@@ -8,5 +8,7 @@ portals:
   END: world_the_end
 settings:
   pvp: true
-  disable-block-break: false
-  disable-entity-damage-by-entity: false
+  enable-block-break: true
+  enable-block-place: true
+  enable-interact: true
+

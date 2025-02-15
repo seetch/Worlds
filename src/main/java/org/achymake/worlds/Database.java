@@ -97,15 +97,15 @@ public class Database {
     }
 
     public boolean isBlockBreakEnabled(World world) {
-        return getConfig(world).getBoolean("settings.disable-block-break");
+        return getConfig(world).getBoolean("settings.enable-block-break");
     }
 
     public boolean isBlockPlaceEnabled(World world) {
-        return getConfig(world).getBoolean("settings.disable-block-place");
+        return getConfig(world).getBoolean("settings.enable-block-place");
     }
 
     public boolean isInteractEnabled(World world) {
-        return getConfig(world).getBoolean("settings.disable-interact");
+        return getConfig(world).getBoolean("settings.enable-interact");
     }
 
     public String getDisplayName(World world) {
@@ -143,7 +143,40 @@ public class Database {
     public void setPVP(World world, boolean value) {
         var file = getFile(world);
         var config = YamlConfiguration.loadConfiguration(file);
-        config.set("pvp", value);
+        config.set("settings.pvp", value);
+        try {
+            config.save(file);
+        } catch (IOException e) {
+            getMessage().sendLog(Level.WARNING, e.getMessage());
+        }
+    }
+
+    public void setBlockBreak(World world, boolean value) {
+        var file = getFile(world);
+        var config = YamlConfiguration.loadConfiguration(file);
+        config.set("settings.enable-block-break", value);
+        try {
+            config.save(file);
+        } catch (IOException e) {
+            getMessage().sendLog(Level.WARNING, e.getMessage());
+        }
+    }
+
+    public void setBlockPlace(World world, boolean value) {
+        var file = getFile(world);
+        var config = YamlConfiguration.loadConfiguration(file);
+        config.set("settings.enable-block-place", value);
+        try {
+            config.save(file);
+        } catch (IOException e) {
+            getMessage().sendLog(Level.WARNING, e.getMessage());
+        }
+    }
+
+    public void setInteract(World world, boolean value) {
+        var file = getFile(world);
+        var config = YamlConfiguration.loadConfiguration(file);
+        config.set("settings.enable-interact", value);
         try {
             config.save(file);
         } catch (IOException e) {

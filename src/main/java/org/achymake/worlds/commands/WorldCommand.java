@@ -57,6 +57,39 @@ public class WorldCommand implements CommandExecutor, TabCompleter {
                         return true;
                     }
                 }
+                if (args[0].equalsIgnoreCase("blockbreak")) {
+                    if (getDatabase().worldExist(player.getWorld().getName())) {
+                        getDatabase().setBlockBreak(player.getWorld(), !getDatabase().isBlockBreakEnabled(player.getWorld()));
+                        if (getDatabase().isBlockBreakEnabled(player.getWorld())) {
+                            getMessage().send(player, player.getWorld().getName() + "&6 is now block break enable");
+                        } else {
+                            getMessage().send(player, player.getWorld().getName() + "&6 is now block break disable");
+                        }
+                        return true;
+                    }
+                }
+                if (args[0].equalsIgnoreCase("blockplace")) {
+                    if (getDatabase().worldExist(player.getWorld().getName())) {
+                        getDatabase().setBlockPlace(player.getWorld(), !getDatabase().isBlockPlaceEnabled(player.getWorld()));
+                        if (getDatabase().isBlockPlaceEnabled(player.getWorld())) {
+                            getMessage().send(player, player.getWorld().getName() + "&6 is now block place enable");
+                        } else {
+                            getMessage().send(player, player.getWorld().getName() + "&6 is now block place disable");
+                        }
+                        return true;
+                    }
+                }
+                if (args[0].equalsIgnoreCase("interact")) {
+                    if (getDatabase().worldExist(player.getWorld().getName())) {
+                        getDatabase().setInteract(player.getWorld(), !getDatabase().isInteractEnabled(player.getWorld()));
+                        if (getDatabase().isInteractEnabled(player.getWorld())) {
+                            getMessage().send(player, player.getWorld().getName() + "&6 is now interact enable");
+                        } else {
+                            getMessage().send(player, player.getWorld().getName() + "&6 is now interact disable");
+                        }
+                        return true;
+                    }
+                }
             }
             if (args.length == 2) {
                 if (args[0].equalsIgnoreCase("teleport")) {
@@ -204,6 +237,9 @@ public class WorldCommand implements CommandExecutor, TabCompleter {
                 commands.add("create");
                 commands.add("gamerule");
                 commands.add("pvp");
+                commands.add("blockbreak");
+                commands.add("blockplace");
+                commands.add("interact");
                 commands.add("remove");
                 commands.add("setspawn");
                 commands.add("teleport");

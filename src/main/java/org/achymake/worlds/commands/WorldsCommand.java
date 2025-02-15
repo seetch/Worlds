@@ -9,15 +9,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WorldsCommand implements CommandExecutor, TabCompleter {
+
     private Worlds getWorlds() {
         return Worlds.getInstance();
     }
+
     private Message getMessage() {
         return getWorlds().getMessage();
     }
+
     public WorldsCommand() {
         getWorlds().getCommand("worlds").setExecutor(this);
     }
+
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player player) {
             if (args.length == 0) {
@@ -47,6 +51,7 @@ public class WorldsCommand implements CommandExecutor, TabCompleter {
         }
         return false;
     }
+
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         List<String> commands = new ArrayList<>();
         if (sender instanceof Player) {

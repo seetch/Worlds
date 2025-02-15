@@ -10,18 +10,23 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 
 public class EntityDamageByEntity implements Listener {
+
     private Worlds getWorlds() {
         return Worlds.getInstance();
     }
+
     private Database getDatabase() {
         return getWorlds().getDatabase();
     }
+
     private Message getMessage() {
         return getWorlds().getMessage();
     }
+
     public EntityDamageByEntity() {
         getWorlds().getManager().registerEvents(this, getWorlds());
     }
+
     @EventHandler(priority = EventPriority.NORMAL)
     public void onEntityDamageByEntity(EntityDamageByEntityEvent event) {
         var entity = event.getEntity();
@@ -31,7 +36,7 @@ public class EntityDamageByEntity implements Listener {
                 if (arrow.getShooter() instanceof Player player) {
                     if (entity instanceof Player target) {
                         if (player == target) return;
-                        if (getDatabase().isPVP(target.getWorld()))return;
+                        if (getDatabase().isPVP(target.getWorld())) return;
                         getMessage().send(player, "&cHey!&7 Sorry but PVP is disabled");
                         event.setCancelled(true);
                     }
@@ -48,8 +53,8 @@ public class EntityDamageByEntity implements Listener {
             case Snowball snowball -> {
                 if (snowball.getShooter() instanceof Player player) {
                     if (entity instanceof Player target) {
-                        if (player == target)return;
-                        if (getDatabase().isPVP(target.getWorld()))return;
+                        if (player == target) return;
+                        if (getDatabase().isPVP(target.getWorld())) return;
                         getMessage().send(player, "&cHey!&7 Sorry but PVP is disabled");
                         event.setCancelled(true);
                     }

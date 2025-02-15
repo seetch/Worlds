@@ -13,39 +13,51 @@ import java.io.IOException;
 import java.util.logging.Level;
 
 public class Database {
+
     private Worlds getWorlds() {
         return Worlds.getInstance();
     }
+
     private Server getServer() {
         return getWorlds().getServer();
     }
+
     private Message getMessage() {
         return getWorlds().getMessage();
     }
+
     public boolean folderExist(String worldName) {
         return new File(getServer().getWorldContainer(), worldName).exists();
     }
+
     public boolean worldExist(String worldName) {
         return getServer().getWorld(worldName) != null;
     }
+
     public World getWorld(String world) {
         return getServer().getWorld(world);
     }
+
     private File getFolder() {
         return new File(getWorlds().getDataFolder(), "world");
     }
+
     public File getFile(String worldName) {
         return new File(getFolder(), worldName + ".yml");
     }
+
     public File getFile(World world) {
         return getFile(world.getName());
     }
+
     public boolean exists(World world) {
         return getFile(world).exists();
     }
+
     public FileConfiguration getConfig(World world) {
         return YamlConfiguration.loadConfiguration(getFile(world));
     }
+
     public void setupWorlds() {
         var folder = getFolder();
         for (var files : folder.listFiles()) {
@@ -61,6 +73,7 @@ public class Database {
             }
         }
     }
+
     public void createFile(World world) {
         var file = getFile(world);
         var config = YamlConfiguration.loadConfiguration(file);
@@ -78,12 +91,15 @@ public class Database {
             getMessage().sendLog(Level.WARNING, e.getMessage());
         }
     }
+
     public boolean isPVP(World world) {
         return getConfig(world).getBoolean("pvp");
     }
+
     public String getDisplayName(World world) {
         return getMessage().addColor(getConfig(world).getString("display-name"));
     }
+
     public void setSpawn(World world, Location location) {
         var file = getFile(world);
         var config = YamlConfiguration.loadConfiguration(file);
@@ -98,6 +114,7 @@ public class Database {
             getMessage().sendLog(Level.WARNING, e.getMessage());
         }
     }
+
     public Location getSpawn(World world) {
         if (getConfig(world).isConfigurationSection("spawn")) {
             var x = getConfig(world).getDouble("spawn.x");
@@ -110,6 +127,7 @@ public class Database {
             return world.getSpawnLocation().add(0.5, 0.0, 0.5);
         }
     }
+
     public void setPVP(World world, boolean value) {
         var file = getFile(world);
         var config = YamlConfiguration.loadConfiguration(file);
@@ -120,12 +138,15 @@ public class Database {
             getMessage().sendLog(Level.WARNING, e.getMessage());
         }
     }
+
     public boolean isPortalEnable(World world) {
         return getConfig(world).getBoolean("portals.enable");
     }
+
     public void teleport(Player player, String portalType) {
         player.teleport(getSpawn(getWorld(getConfig(player.getWorld()).getString("portals." + portalType))));
     }
+
     public void reload() {
         var folder = getFolder();
         if (folder.exists() | folder.isDirectory()) {

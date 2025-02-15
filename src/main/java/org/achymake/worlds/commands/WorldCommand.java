@@ -17,21 +17,27 @@ import java.util.Collections;
 import java.util.List;
 
 public class WorldCommand implements CommandExecutor, TabCompleter {
+
     private Worlds getWorlds() {
         return Worlds.getInstance();
     }
+
     private Database getDatabase() {
         return getWorlds().getDatabase();
     }
+
     private Message getMessage() {
         return getWorlds().getMessage();
     }
+
     private Server getServer() {
         return getWorlds().getServer();
     }
+
     public WorldCommand() {
         getWorlds().getCommand("world").setExecutor(this);
     }
+
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player player) {
             if (args.length == 1) {
@@ -84,7 +90,7 @@ public class WorldCommand implements CommandExecutor, TabCompleter {
                         if (getDatabase().isPVP(player.getWorld())) {
                             getMessage().send(player, worldName + "&6 is now pvp mode");
                         } else {
-                            getMessage().send(player, worldName  + "&6 is no longer pvp mode");
+                            getMessage().send(player, worldName + "&6 is no longer pvp mode");
                         }
                     } else {
                         getMessage().send(player, worldName + "&c does not exist");
@@ -189,6 +195,7 @@ public class WorldCommand implements CommandExecutor, TabCompleter {
         }
         return false;
     }
+
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
         List<String> commands = new ArrayList<>();
         if (sender instanceof Player player) {
